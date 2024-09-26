@@ -1,0 +1,39 @@
+Inserir Autor no Postman
+=============================
+{
+    "nome": "Autor 1",
+    "materia": "Geografia"
+}
+
+
+
+Post = Pegar Id do autor e substituir na string
+===================================================
+{
+"titulo": "Post Novo",
+"autor": {"_id": "66f53dac90a408175edac711"},
+"descricao":"Novo Post",
+"data":"2024-09-27"
+}
+
+database: myblog
+collection: autores
+collection: posts
+
+GitHub
+==================================================
+…or create a new repository on the command line
+echo "# challenge_2" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/ersouzae/challenge_2.git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/ersouzae/challenge_2.git
+git branch -M main
+git push -u origin main
+
+

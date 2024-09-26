@@ -1,0 +1,22 @@
+{
+  "name": "express-mongo",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Eduardo",
+  "license": "ISC",
+  "description": "This is a test project!",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.6.3",
+    "nodemon": "^3.1.7"
+  }
+}
