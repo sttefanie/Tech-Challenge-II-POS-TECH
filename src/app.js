@@ -13,6 +13,7 @@ conexao.once("open",()=>{ //Abre conexão e teste se retorno de once é = "open"
 })
 
 const app = express();
+
 routes(app);
 
 export default app;
