@@ -5,7 +5,7 @@ const postSchema = new mongoose.Schema({
   titulo: { type: String, required: true },
   descricao: { type: String },
   data: { type: mongoose.Schema.Types.Date },
-  autor: {type: mongoose.Schema.Types.ObjectId, ref: "autores"},
+  autor: {type: mongoose.Schema.Types.ObjectId, ref: "autores",required: true},
 }, { versionKey: false });
 
 const post = mongoose.model("posts", postSchema);

@@ -20,20 +20,46 @@ database: myblog
 collection: autores
 collection: posts
 
-GitHub
-==================================================
-…or create a new repository on the command line
-echo "# challenge_2" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/ersouzae/challenge_2.git
-git push -u origin main
+Application workflow
+=====================
+Start the aplication => command line => "ndm run dev", "ndm start" or "node server.js"
 
-…or push an existing repository from the command line
-git remote add origin https://github.com/ersouzae/challenge_2.git
-git branch -M main
-git push -u origin main
+Enter point = server.js 
+	initiate environment variables => .env
+	instantiate => app.js => listening port (waiting for request)
+
+app.js
+	initiate data bank connection using mongoose => config/dbconnect.js
+	initiate express (take of routes) and apply it to app
+	apply routes (routes/index.js) into app
+
+index.js
+	centralize all routes => takes care of main route ("/")
+	inject other two routes to app (autores,post)
+
+autoresRoutes.js
+	takes care of all routes regarding it
+	for each route it invokes the respective method from routes/autorController.js
+
+postsRoutes.js
+	takes care of all routes regarding it
+	for each route it invokes the respective method from routes/postController.js
+
+autorController.js
+	instatiate and use models/Autor.js as data representation of autor into de database
+	implements all CRUDE methods
+
+postController.js
+	instatiate and use models/Post.js as data representation of autor into de database
+	implements all CRUDE methods
+
+Autor.js
+	instatiate mongoose to create a data model Schema 
+	apply this database model to the dabase collection "autores" on mongodb
+
+Post.js
+	instatiate mongoose to create a data model Schema for "posts" 
+	this model has its fields but also includes a reference to an external collection "autores"
+	apply this database model to the dabase collection "autores" on mongodb
 
 
