@@ -15,7 +15,7 @@ const routes = (app) => {
   // Rota para a documentação do Swagger
   app.use("/api-docs", serveSwagger, setupSwagger); 
 
- // app.use(express.json(),autores,post);
+  app.use(express.json(),autores,post);
   
 };
 
