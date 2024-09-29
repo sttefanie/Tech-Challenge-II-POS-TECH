@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - DB_CONNECTION_STRING=mongodb://db:27017/myblog
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"

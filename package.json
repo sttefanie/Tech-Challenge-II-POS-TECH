@@ -6,12 +6,8 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+     "test": "jest --runInBand"
   },
-  "keywords": [],
-  "author": "Eduardo",
-  "license": "ISC",
-  "description": "This is a test project!",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
@@ -20,5 +16,14 @@
     "nodemon": "^3.1.7",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.24.8",
+    "@babel/preset-env": "^7.25.4",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.0.0",
+    "node-mocks-http": "^1.16.0",
+    "supertest": "^7.0.0"
   }
 }
