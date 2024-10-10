@@ -1,12 +1,17 @@
 FROM node:18
 
-WORKDIR /app
+# Define o diretório de trabalho dentro do container (ajuste conforme seu projeto)
+WORKDIR /Tech-Challenge-II-POS-TECH
 
+# Copia os arquivos de dependência e depois o restante do projeto
 COPY package*.json ./
 COPY . .
 
+# Instala as dependências do projeto
 RUN npm install
 
+# Expõe a porta da aplicação
 EXPOSE 3000
 
+# Comando para iniciar a aplicação
 CMD ["npm", "start"]
