@@ -1,17 +1,13 @@
-FROM node:18
+FROM node:18-slim
 
-# Define o diretório de trabalho dentro do container (ajuste conforme seu projeto)
-WORKDIR /Tech-Challenge-II-POS-TECH
+WORKDIR /app
 
-# Copia os arquivos de dependência e depois o restante do projeto
-COPY package*.json ./
-COPY . .
+COPY package.json .
 
-# Instala as dependências do projeto
 RUN npm install
 
-# Expõe a porta da aplicação
+COPY . .
+
 EXPOSE 3000
 
-# Comando para iniciar a aplicação
-CMD ["npm", "start"]
+CMD [ "node", "app.js" ]
