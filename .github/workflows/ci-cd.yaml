@@ -35,13 +35,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Executa os testes
+      # Executa os testesaz
       - name: Run tests
         run: npm test
 
       # Faz o build da imagem Docker usando o Dockerfile no diretório Tech-Challenge-II-POS-TECH
       - name: Build Docker image
-        run: docker build -t my-blog-app:latest -f ./Tech-Challenge-II-POS-TECH/Dockerfile .
+        run: docker build -t my-blog-app:latest -f Dockerfile .
 
       # Faz login no Docker Hub
       - name: Log in to Docker Hub
