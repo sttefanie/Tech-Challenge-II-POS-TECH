@@ -22,8 +22,8 @@ jobs:
         run: ls -la
 
       # Lista o conteúdo do diretório 'Tech-Challenge-II-POS-TECH' para confirmar o Dockerfile
-      - name: List contents of Tech-Challenge-II-POS-TECH directory
-        run: ls -la ./Tech-Challenge-II-POS-TECH
+      - name: List root directory
+        run: ls -la
 
       # Configura o Node.js 18
       - name: Set up Node.js
