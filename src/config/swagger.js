@@ -11,8 +11,8 @@ const swaggerOptions = {
       description: "API for my Node/Express Blog project",
     },
   },
-  apis: ["../routes/autoresRoutes.js"], // Caminho para os docs da API src/routes/
-};
+  apis: ["src/routes/*.js"], 
+}
 
 export const swaggerDocs = swaggerJsdoc(swaggerOptions);
 export const serveSwagger = swaggerUi.serve;
