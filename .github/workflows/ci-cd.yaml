@@ -1,0 +1,47 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Faz checkout do código do repositório
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Configura o Node.js 18
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      # Instala as dependências do projeto
+      - name: Install dependencies
+        run: npm install
+
+      # Executa os testes
+      - name: Run tests
+        run: npm test
+
+      # Faz o build da imagem Docker usando o Dockerfile na raiz
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/my-blog-app:latest .
+
+      # Faz login no Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Empurra a imagem para o Docker Hub
+      - name: Push Docker image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/my-blog-app:latest
