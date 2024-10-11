@@ -18,11 +18,7 @@ jobs:
         uses: actions/checkout@v2
 
       # Lista os arquivos e diretórios para verificar o caminho correto
-      - name: List project directory
-        run: ls -la
-
-      # Lista o conteúdo do diretório 'Tech-Challenge-II-POS-TECH' para confirmar o Dockerfile
-      - name: List root directory
+      - name: List directory contents
         run: ls -la
 
       # Configura o Node.js 18
@@ -35,17 +31,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Executa os testesaz
+      # Executa os testes
       - name: Run tests
         run: npm test
 
-      # Faz o build da imagem Docker usando o Dockerfile no diretório Tech-Challenge-II-POS-TECH
+      # Faz o build da imagem Docker usando o Dockerfile na raiz
       - name: Build Docker image
-        run: docker build -t my-blog-app:latest -f ./docker/Dockerfile .
+        run: docker build -t my-blog-app:latest -f Dockerfile .
 
-      # Faz login no Docker Hub
+      # Faz login no Docker Hub (atualizado para v2)
       - name: Log in to Docker Hub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
