@@ -41,7 +41,7 @@ jobs:
 
       # Faz o build da imagem Docker usando o Dockerfile no diretório Tech-Challenge-II-POS-TECH
       - name: Build Docker image
-        run: docker build -t my-blog-app:latest -f /Dockerfile .
+        run: docker build -t my-blog-app:latest -f ./docker/Dockerfile .
 
       # Faz login no Docker Hub
       - name: Log in to Docker Hub
