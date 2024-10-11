@@ -35,9 +35,9 @@ jobs:
       - name: Run tests
         run: npm test
 
-      # Faz o build da imagem Docker usando o Dockerfile na raiz
+      # Faz o build da imagem Docker usando o Dockerfile no diretório docker/
       - name: Build Docker image
-        run: docker build -t my-blog-app:latest -f ./docker/Dockerfile .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/my-blog-app:latest -f ./docker/Dockerfile .
 
       # Faz login no Docker Hub (atualizado para v2)
       - name: Log in to Docker Hub
